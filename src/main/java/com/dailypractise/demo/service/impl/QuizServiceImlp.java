@@ -15,8 +15,7 @@ import java.util.stream.Collectors;
 public class QuizServiceImlp implements QuizService {
 
     private final QuizRepository quizRepository;
-
-    private QuestionClient questionClient;
+    private final QuestionClient questionClient;
 
     public QuizServiceImlp(QuizRepository quizRepository, QuestionClient questionClient) {
         this.quizRepository = quizRepository;
@@ -38,7 +37,6 @@ public class QuizServiceImlp implements QuizService {
             quiz.setQuestions(questionClient.getQuestionsForQuiz(quiz.getId()));
             return quiz;
         }).collect(Collectors.toList());
-
         return newQuizList;
     }
 
