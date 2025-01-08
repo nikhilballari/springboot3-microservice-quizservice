@@ -33,9 +33,9 @@ public class QuizController {
     }
 
     @GetMapping
-//    @CircuitBreaker(name = GETALLQUIZESCB, fallbackMethod = "getAllQuizesFallBack")
+    @CircuitBreaker(name = GETALLQUIZESCB, fallbackMethod = "getAllQuizesFallBack")
 //    @Retry(name = GETALLQUIZESRETRY)
-    @RateLimiter(name = GETALLQUIZESRATELIMITER, fallbackMethod = "rateLimiterFallback")
+//    @RateLimiter(name = GETALLQUIZESRATELIMITER, fallbackMethod = "rateLimiterFallback")
     public List<Quiz> getAllQuizes() {
         log.info("Inside method call - getAllQuizes()");
         return quizService.getAllQuizes();

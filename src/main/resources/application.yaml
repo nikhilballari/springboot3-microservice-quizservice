@@ -3,3 +3,9 @@ spring:
     name: "quiz-service"
   config:
     import: "optional:configserver:http://localhost:8088"
+
+logging:
+  level:
+    io:
+      github:
+        resilience4j: "DEBUG"
